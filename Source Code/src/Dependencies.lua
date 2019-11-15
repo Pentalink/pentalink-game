@@ -1,0 +1,54 @@
+Class = require 'lib/class'
+push = require 'lib/push'
+Event = require 'lib/knife.event'
+Timer = require 'lib/knife.timer'
+
+
+require 'src/helpfile'
+require 'src/Util'
+require 'src/Graph'
+require 'src/constants'
+require 'src/Level'
+require 'src/entities/Player'
+require 'src/entities/Triangle'
+
+require 'src/states/BaseState'
+require 'src/states/StateStack'
+
+require 'src/states/game/StartState'
+require 'src/states/game/PlayState'
+require 'src/states/game/GameOverState'
+require 'src/states/game/LevelSelectState'
+require 'src/states/game/HelpState'
+require 'src/states/game/FadeInState'
+require 'src/states/game/FadeOutState'
+require 'src/states/game/BackgroundState'
+
+require 'src/gui/Textbox'
+require 'src/gui/Panel'
+require 'src/gui/ScrollBar'
+require 'src/gui/Button'
+
+gFonts = {
+    ['small'] = love.graphics.newFont('fonts/Antaro.ttf', 20),
+    ['slightlybigger'] = love.graphics.newFont('fonts/Antaro.ttf', 25),
+    ['medium-smaller'] = love.graphics.newFont('fonts/Antaro.ttf', 30),
+    ['medium'] = love.graphics.newFont('fonts/Antaro.ttf', 40),
+    ['medium-bigger'] = love.graphics.newFont('fonts/Antaro.ttf', 50),
+    ['titlefont'] = love.graphics.newFont('fonts/Antaro.ttf', 60),
+    ['large'] = love.graphics.newFont('fonts/Antaro.ttf', LARGE_FONT_SIZE)
+}
+
+gSounds = {
+    ['menu-select'] = love.audio.newSource('sounds/menu_select.wav'),
+    ['deny-connection'] = love.audio.newSource('sounds/deny_connection.wav')
+}
+
+gTextures = {
+    ['buttons'] = {
+        ['exit'] = love.graphics.newImage('graphics/buttons/exit.png'),
+        ['home'] = love.graphics.newImage('graphics/buttons/home.png'),
+        ['undo'] = love.graphics.newImage('graphics/buttons/undo.png'),
+        ['hamburger'] = love.graphics.newImage('graphics/buttons/hamburger.png')
+    }
+}
