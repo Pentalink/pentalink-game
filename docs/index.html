@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html>
-<title>Pentalink</title>
-<h1 align=center style = "color: white; margin-top: 350px; font-family:'Tw Cen MT';font-size:60px">Pentalink</h1>
 <head>
+	<title>Pentalink</title>
+	<link rel = "icon" type = "image/png" href = "icon.png">
+    <!-- For apple devices -->
+    <link rel = "apple-touch-icon" type = "image/png" href = "icon.png"/>
 <style>
+	.topnav {
+  	overflow: hidden;
+  	background-color: rgba(240, 218, 48, 0.9);
+	}
+
+	.topnav a {
+  	float: right;
+  	color: #ffffff;
+  	text-align: center;
+ 	padding: 14px 20px;
+  	text-decoration: none;
+  	font-size: 25px;
+  	font-family: Calibri;
+	}
+	.topnav a:hover {
+  	background-color: red;
+  	color: white;
+  	border-radius:6px;
+	}
+
+	
 	body {background-color:powderblue}
 	p {text-align:center; 
 		font-family:Calibri; 
@@ -26,12 +49,16 @@
 </style>
 </head>
 <body>
+<div class="topnav">
+  		<a class="active" href="https://forms.gle/3YHGnTXoVnc6SgfP8">Feedback</a>
+</div>
+<h1 align=center style = "color: white; margin-top: 350px; font-family:'Tw Cen MT';font-size:60px">Pentalink</h1>
 	<p>An original idea by a group of students</p>
 <div align=center>
-	<button type="button" onclick="window.location.href = '';">Download for Mac</button>
+	<button type="button" onclick="window.location.href = 'https://github.com/Pentalink/pentalink-game';" download>Download for Mac</button>
 </div>
 <div align=center>
-	<button type="button" onclick="window.location.href = 'https://github.com/Pentalink/pentalink-game/blob/master/Windows/';" download>Download for Windows</button>
+	<button type="button" onclick="window.location.href = 'https://github.com/Pentalink/pentalink-game';" download>Download for Windows</button>
 </div>
 </body>
 </html>
