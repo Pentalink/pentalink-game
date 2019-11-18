@@ -5,6 +5,9 @@ function StateStack:init()
 end
 
 function StateStack:update(dt)
+    if #self.states == 0 then
+        love.event.quit()
+    end
     self.states[#self.states]:update(dt)
 end
 

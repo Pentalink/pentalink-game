@@ -1,3 +1,5 @@
+VERSION_NUMBER = "0.10"
+
 METRE_LENGTH = 64 -- how many pixels represent 1 metre
 
 VIRTUAL_WIDTH = 1440

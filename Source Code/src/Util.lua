@@ -10,14 +10,25 @@ function translatePoints(points, dx, dy, scale)
 end
 
 function scaleIncrement(value, lower, upper, incr)
+    print(value, lower, upper, incr)
     if incr > 0 then
-        value = math.max(lower, (value + incr)%(upper + 1))
+        while incr > 0 do
+            value = value + 1
+            incr = incr - 1
+            if value > upper then
+                value = lower
+            end
+        end
     elseif incr < 0 then
-        value = (value + incr) % (upper + 1)
-        while value <= 0 do
-            value = value + upper
+        while incr < 0 do
+            value = value - 1
+            incr = incr + 1
+            if value < lower then
+                value = upper
+            end
         end
     end
+    print(value)
     return value
 end
 

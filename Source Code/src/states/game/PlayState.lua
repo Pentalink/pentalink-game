@@ -278,7 +278,7 @@ function PlayState:render()
         if #cycle == 5 then
             love.graphics.setColor(255, 0, 0, 200)
         else
-            love.graphics.setColor(194, 197, 204, 200)
+            love.graphics.setColor(14, 66, 171, 200)
         end
         local vertices = getVertices(cycle)
         if convex then
@@ -306,7 +306,7 @@ function PlayState:render()
             love.graphics.setColor(0, 0, 0)
         end
         love.graphics.setFont(gFonts['small'])
-        love.graphics.print(tostring(i), point[1], point[2])
+        -- love.graphics.print(tostring(i), point[1], point[2])
         love.graphics.circle('fill', point[1], point[2], 5)
     end
 

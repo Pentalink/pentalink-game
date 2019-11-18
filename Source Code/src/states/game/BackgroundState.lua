@@ -47,7 +47,22 @@ end
 
 function BackgroundState:update(dt)
     mouseX, mouseY = push:toGame(love.mouse.getX(), love.mouse.getY())
+    -- code to rotate mouse
+
+    self.rotation = (self.rotation + 0.2 * dt)%(2 * math.pi)
+
     if mouseX and mouseY then
+        local s = math.sin(-self.rotation)
+        local c = math.cos(-self.rotation)
+
+        mouseX = mouseX - VIRTUAL_WIDTH / 2
+        mouseY = mouseY - VIRTUAL_HEIGHT / 2
+
+        local xnew = mouseX * c - mouseY * s
+        local ynew = mouseX * s + mouseY * c
+
+        mouseX = xnew + VIRTUAL_WIDTH / 2
+        mouseY = ynew + VIRTUAL_HEIGHT / 2
         self.projected = {}
         for i, point in pairs(gPoints) do
             local vec_x = mouseX - point[1]
@@ -56,14 +71,16 @@ function BackgroundState:update(dt)
             table.insert(self.projected, {point[1] + vec_x * scale, point[2] + vec_y * scale})
         end
     end
-    self.rotation = (self.rotation + 0.2 * dt)%(2 * math.pi)
 end
 
 function BackgroundState:render(position)
     self.position = position
+
+    -- code to rotate
     love.graphics.translate(VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2)
     love.graphics.rotate(self.rotation)
     love.graphics.translate(-VIRTUAL_WIDTH / 2, - VIRTUAL_HEIGHT / 2)
+
     love.graphics.translate(self.position.x, self.position.y)
     love.graphics.clear(255, 255, 255, 255)
 
@@ -107,6 +124,8 @@ function BackgroundState:render(position)
         love.graphics.circle('fill', point[1], point[2], 5)
     end
     love.graphics.translate(-self.position.x, - self.position.y)
+
+    -- code to de-rotate
     love.graphics.translate(VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2)
     love.graphics.rotate(-self.rotation)
     love.graphics.translate(-VIRTUAL_WIDTH / 2, - VIRTUAL_HEIGHT / 2)
